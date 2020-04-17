@@ -1,0 +1,34 @@
+Task 1 :--->> Creating 100 containers 25 each of alpine, java, fedora, centos, which runs forever using python script
+import os
+for num in range(1,101):
+  if num<=25:
+		os.system("docker run -itd --restart unless-stopped --name adhocnw{} alpine".format(num))
+	elif num<=50:
+    os.system("docker run -itd --restart unless-stopped --name adhocnw{} java".format(num))
+	elif num<=75:
+		os.system("docker run -itd --restart unless-stopped --name adhocnw{} centos".format(num))
+	elif num<=100:
+    os.system("docker run -itd --restart unless-stopped --name adhocnw{} fedora".format(num))
+os.system("docker ps")
+
+
+
+
+
+
+TASK 2 :-->> Write a combination of Docker and OS commands to get list of Name,Created of all containers and store them in a list
+
+sudo docker ps -a | awk 'print{ $14, $5$6$7$8 }' > ujjwal.txt
+
+
+
+
+Task 3 :--->>>  Create custom docker image containing with firefox as parent image
+
+I dont have docker installed locally in my system
+
+
+TASK 4 :--->> get RAM & CPU consumption from 100 containers and store in text file.
+
+
+docker stats -a  --no-stream --format "table {{.Container}}\t{{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}" > ram.txt
